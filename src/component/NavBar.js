@@ -1,4 +1,3 @@
-import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Avatar, FormControlLabel, FormGroup } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
@@ -11,8 +10,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
+import image from '../images/avtar-image.jpg';
 import { MaterialUISwitch } from '../util/util';
-import image from '../images/avtar-image.jpg'
 const settings = ['resume', 'github', 'Linkedin'];
 
 const  NavBar = (props) => {
