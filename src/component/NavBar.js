@@ -34,12 +34,11 @@ const  NavBar = (props) => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Avatar alt="kuldeep Kumar" src={image}  sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <Avatar alt="kuldeep Kumar" src={image}  sx={{ height:'100px',width:'100px', display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -122,13 +121,7 @@ const  NavBar = (props) => {
             }}
           >
             {settings.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: "inherit", display: "block" }}>{page}</Button>
             ))}
           </Box>
           <Box>

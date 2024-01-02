@@ -3,17 +3,16 @@ import React from 'react'
 
 const CardDesign = ({props}) => {
 
-    console.log(props);
 
   return (
     <Card
         style={{
           backgroundImage:
             'linear-gradient(to right, rgb(156 221 235 / 19%), rgb(148 241 238 / 22%));',
-          border: '1px solid #e9dddd'
+          
         }}
       >
-        <CardContent style={{ minHeight: '100px', color: '#fff' }}>
+        <CardContent style={{ minHeight: '150px',  }}>
           <Grid container spacing={0}>
             <Grid item xs={12} md={12}>
               <Grid container spacing={0}>
@@ -23,24 +22,22 @@ const CardDesign = ({props}) => {
                   md={2}
                   style={{ display: 'flex', alignItems: 'center' }}
                 >
-                  <Typography
-                    variant="h6"
-                    component="h6"
-                   
-                  >
-                    {/* <FAIcon size="xl" icon={icon} /> */}
-                  </Typography>
+                 
+                   <img src={props.image} height={100} width={150} alt='ima'></img>
                 </Grid>
                 <Grid item xs={10} md={10}>
                   <Typography
                     variant="h6"
                     component="h6"
-                    color="primary"
+                    color="inherit"
                     style={{
                       lineHeight: '20px'
                     }}
                   >
                     <p>{props.name}</p>
+                    <p style={{fontSize:'15px'}}>{props.feature}</p>
+
+
                   </Typography>
                   <div>
                   <Typography
@@ -51,7 +48,7 @@ const CardDesign = ({props}) => {
                       display: 'flex'
                     }}
                   >
-                    {props.completed}
+                    {props.techStack}
                   </Typography>
                   </div>
                 </Grid>
