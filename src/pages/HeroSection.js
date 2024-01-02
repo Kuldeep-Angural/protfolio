@@ -7,7 +7,7 @@ import { bio, professionWords } from '../constants/informationText';
 const HeroSection = () => {
   return (
     <>
-    <div style={{height:'100vh'}} className="d-flex mt-5 col-md-12 w-100  justify-content-center align-item-center col-md-12 ">
+    <div style={{height:'80vh'}} className="d-flex mt-5 col-md-12 w-100  justify-content-center align-item-center col-md-12 ">
      <div className='mt-5 ms-1'>
      <figure class="text-center">
      <blockquote class="blockquote"  style={{height:"80px", fontFamily:'monospace' , letterSpacing: ".0rem",  fontWeight: 700, fontSize:'16px'}}>

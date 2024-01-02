@@ -36,13 +36,13 @@ export const qualification =[
           },
 
 
-          {
-            name: "Secondary Schooling",
-            location:'Pathankot, Punjab, India',
-            university:"SVM(Sarvhitkari Vidya Mandir)",
-            completed:"2015",
-            image:"http://svmbarnala1.sarvhitkari.org/wp-content/uploads/2022/08/Logo-1.png",
-          },
+          // {
+          //   name: "Secondary Schooling",
+          //   location:'Pathankot, Punjab, India',
+          //   university:"SVM(Sarvhitkari Vidya Mandir)",
+          //   completed:"2015",
+          //   image:"http://svmbarnala1.sarvhitkari.org/wp-content/uploads/2022/08/Logo-1.png",
+          // },
 
     ]
 
