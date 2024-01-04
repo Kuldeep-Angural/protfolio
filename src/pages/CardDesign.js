@@ -15,7 +15,7 @@ const CardDesign = ({ props }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <a href={props.image} target="_blank" rel="noreferrer">
+        <a href={props.image} target="_blank" style={{textDecoration:'none'}} rel="noreferrer">
           <Button size="small">view Full image</Button>
         </a>
         <Button size="small">Learn More</Button>
