@@ -12,9 +12,9 @@ export const projects = [
         name: 'MeriZameen',
         feature: 'a reala-estate sale purchase web app',
         techStack: 'react-js,Node-js,mongoDb,javaScript',
-        image:  MariZameen ,
+        image: MariZameen,
       },
-      
+
       {
         name: 'The Hawkers',
         feature: 'A vegitable selling web App',
@@ -25,28 +25,28 @@ export const projects = [
         name: 'PushBiker',
         feature: 'a bike Rental web app',
         techStack: 'react-js,Node-js,mongoDb,javaScript',
-        image: PushBiker ,
+        image: PushBiker,
       },
 
       {
         name: 'Tesla Web Clone',
         feature: 'Clone tesla Cars webPage',
         techStack: 'pure Html, Css',
-        image: Tesla ,
+        image: Tesla,
       },
 
       {
         name: 'web-game',
         feature: 'a simple web-based rock-papper scisior game  ',
         techStack: 'Html,css,javaScript',
-        image: RockPaperScisior ,
+        image: RockPaperScisior,
       },
 
       {
         name: 'Iqoo WebPage',
         feature: 'Complete Clone of iqoo WebSite ',
         techStack: 'Pure Html , Css',
-        image: Iqoo ,
+        image: Iqoo,
       },
     ],
   },

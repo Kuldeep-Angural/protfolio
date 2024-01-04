@@ -1,5 +1,5 @@
 import WorkIcon from '@mui/icons-material/Work';
-import { Avatar, Chip, Grid, Link } from '@mui/material';
+import { Avatar, Chip, Link } from '@mui/material';
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
@@ -75,10 +75,7 @@ const HeroSection = () => {
 
       <div className="mt-5">
         <div className="text-center">
-          <h2 style={{fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",}}>Skills</h2>
+          <h2 style={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit' }}>Skills</h2>
         </div>
         <div className="d-flex g-5 col-md-12 mt-5 justify-content-center align-item-center ">
           {/* Skills */}
@@ -104,14 +101,13 @@ const HeroSection = () => {
           {projects.map((item) => {
             return (
               <div className="row  col-md-12 mb-4 d-flex justify-content-center alingn-item-center mx-4">
-                <h1 className='text-center' style={{fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",}}>projects</h1>
+                <h1 className="text-center" style={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit' }}>
+                  projects
+                </h1>
                 {item.project.map((program) => {
                   return (
                     <div className="col-md-4 mt-3 mb-2 align-item-center justify-content-center ">
-                      <CardDesign props={program}/>
+                      <CardDesign props={program} />
                     </div>
                   );
                 })}

@@ -5,8 +5,6 @@ const Landing = () => {
   return (
     <>
       <HeroSection />
-
-      {/* <SkillsSection /> */}
     </>
   );
 };

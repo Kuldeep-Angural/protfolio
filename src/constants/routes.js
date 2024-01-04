@@ -1,8 +1,8 @@
-import Landing from "../pages/Landing";
+import Landing from '../pages/Landing';
 
 export const routes = [
-    {
-        path: `/`,
-        Component: Landing ,
-      }, 
-]
+  {
+    path: `/`,
+    Component: Landing,
+  },
+];
