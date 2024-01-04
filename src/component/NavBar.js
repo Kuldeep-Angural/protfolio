@@ -31,11 +31,10 @@ const  NavBar = (props) => {
   };
 
 
-  console.log(settings[0]);
 
 
   return (
-    <AppBar position="static" color='inherit'>
+    <AppBar position="sticky" color='inherit'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Avatar alt="kuldeep Kumar" src={image}  sx={{ height:'100px',width:'100px', display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -89,7 +88,6 @@ const  NavBar = (props) => {
               {settings.map((page,index) => (
                 <MenuItem key={index}  onClick={handleCloseNavMenu}>
                   <Link href={page.link} color='inherit' underline='none' target="_blank" style={{fontWeight:'700'}}>
-                    {console.log(page)}
                   <Typography textAlign="center">{page.name}</Typography>
                   </Link>
                 </MenuItem>
@@ -128,7 +126,7 @@ const  NavBar = (props) => {
             }}
           >
             {settings.map((page) => (
-             <Link href={page.link} target="_blank" color='inherit' sx={{margin:'20px',fontSize:'18px',fontWeight:'500'}} underline="none">
+             <Link href={page.link}  key={page.name} target="_blank" color='inherit' sx={{margin:'20px',fontSize:'18px',fontWeight:'500'}} underline="none">
              {String(page.name).toUpperCase()}
            </Link>
             ))}

@@ -1,27 +1,24 @@
 import WorkIcon from '@mui/icons-material/Work';
-import { Card, CardContent, Grid } from '@mui/material';
+import { Avatar, Chip, Grid, Link } from '@mui/material';
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
-import { bio, professionWords } from '../constants/informationText';
-import image from '../images/roundBg.png';
 import AppModal from '../component/Modal';
+import { bio, professionWords, socialMediaHandle } from '../constants/informationText';
+import { projects } from '../constants/projects';
+import { skills } from '../constants/skills';
+import image from '../images/roundBg.png';
+import CardDesign from './CardDesign';
 const HeroSection = () => {
-
-
-
   const [modalOpen, setModalOpen] = useState(false);
 
-
   const actionHirebutton = () => {
-setModalOpen(true)
-
-  }
+    setModalOpen(true);
+  };
 
   const getModalData = (data) => {
     console.log(data);
-  }
-
+  };
 
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -30,55 +27,101 @@ setModalOpen(true)
   const handleCloseModal = () => {
     setModalOpen(false);
   };
-  
-  
-  
-  
+
   return (
     <>
-    <AppModal  open={modalOpen}
-        onClose={handleCloseModal}
-        title="Example Modal"
-        getData={getModalData}
-        content="This is some example content for the modal."/>
-      <Grid  style={{ marginTop: '15px', height: '120vh', justifyContent: 'center' }}>
-        <Grid xs={12} md={12}>
-          <Card style={{ height:'100vh', justifyContent: 'center', }}>
-            <CardContent style={{ minHeight: '100%' }}>
-                <Grid item xs={12} md={8}>
-                  <Grid  container spacing={0} xs={12} md={12} style={{height:"400px",justifyContent: 'center' }} >
-                    <Grid  xs={2} md={8} style={{ display: 'flex', aligns: 'center' }} >
-                    <blockquote class="blockquote"  style={{ fontFamily:'monospace' , letterSpacing: ".0rem",  fontWeight: 700, fontSize:'30px',marginLeft:'10px' , height:'450px', minWidth:"400px",}}>
-                   <img src={image} height={350} style={{border:'2px solid ', color:'inherit', borderRadius:'50%',marginLeft:'6px'}} alt='myImg'/>
-                     <p  style={{height:"170px"}} className=' mb-5 '>Hi'my name is Kuldeep Kumar <br></br><span> i am a <Typewriter words={professionWords} loop={5} typeSpeed={40} deleteSpeed={40} cursor /></span> </p>
-                       <p  className="mt-1 w-100 " style={{fontSize:'18px', height:"150px", width:'250px'}}>{bio} </p>
-                       <Button variant="outlined" style={{marginLeft:'60px' ,width:"250px", marginTop:'60px',fontSize:'20px',color:'inherit'}}  onClick={actionHirebutton} startIcon={<WorkIcon />} >Hire me </Button>
-                    </blockquote>
-                    </Grid>
-                   
-                    <Grid item xs={10} md={10} style={{position:"relative",top:"100"}}>
-                    </Grid>
-                  </Grid>
-                </Grid>
-               
-            </CardContent>
-          </Card>
-          
-        </Grid>
-      </Grid>
+      <AppModal open={modalOpen} onClose={handleCloseModal} title="Example Modal" getData={getModalData} content="This is some example content for the modal." />
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-md-6">
+            <img src={image} height={350} style={{ border: '2px solid', color: 'inherit', borderRadius: '50%', marginLeft: '0px', maxWidth: '100%', height: 'auto' }} alt="myImg" />
+          </div>
+
+          {/* Hero heading */}
+          <div className="col-md-6 " style={{ height: '600px' }}>
+            <div className="col-md-12 mb-5 text-center">
+              <p className="intro fs-2 mt-5  w-100 " style={{ height: '100px', width: '250px' }}>
+                Hi, my name is Kuldeep Kumar <br />
+                <span>
+                  I am a <Typewriter words={professionWords} loop={5} typeSpeed={40} deleteSpeed={40} cursor />
+                </span>
+                <br></br>
+              </p>
+              <p className="fs-4 h-25 mt-5  mb-5">
+                {bio}
+                <Button variant="outlined" style={{ width: '290px', marginTop: '10px', fontSize: '20px', color: 'inherit' }} onClick={actionHirebutton} startIcon={<WorkIcon />}>
+                  Hire me
+                </Button>
+              </p>
+            </div>
+          </div>
+
+          {/* Social media   */}
+          <div className="container">
+            <div className="row justify-content-center ">
+              {socialMediaHandle.map((item) => {
+                return (
+                  <div className="col-md-2 mt-4" style={{ width: 'auto' }} key={item.name}>
+                    <Link title={item.name} href={item.link} color="inherit" underline="none" target="_blank" style={{ fontWeight: '700' }}>
+                      <Avatar style={{ cursor: 'pointer' }} alt={item.name} src={item.image} className="mb-5 mt-5" />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-5">
+        <div className="text-center">
+          <h2 style={{fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",}}>Skills</h2>
+        </div>
+        <div className="d-flex g-5 col-md-12 mt-5 justify-content-center align-item-center ">
+          {/* Skills */}
+          <div className="row g-5 m-5  mt-5 col-md-12">
+            {skills.map((skillItem) => {
+              <h2>Skills & projects</h2>;
+
+              return (
+                <div className="col-sm  mt-5 text center " key={skillItem.skills}>
+                  <p className="text-center mt-5">{skillItem.title}</p>
+                  {skillItem.skills.map((skills) => {
+                    return <Chip sx={{ height: '60px' }} key={skills.name} avatar={<Avatar alt="Natacha" src={skills.image} />} label={skills.name} variant="outlined" />;
+                  })}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Projects */}
+
+        <div className="container mt-5">
+          {projects.map((item) => {
+            return (
+              <div className="row  col-md-12 mb-4 d-flex justify-content-center alingn-item-center mx-4">
+                <h1 className='text-center' style={{fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",}}>projects</h1>
+                {item.project.map((program) => {
+                  return (
+                    <div className="col-md-4 mt-3 mb-2 align-item-center justify-content-center ">
+                      <CardDesign props={program}/>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 };
 
 export default HeroSection;
-
-{
-  /* <blockquote class="blockquote"  style={{ fontFamily:'monospace' , letterSpacing: ".0rem",  fontWeight: 700, fontSize:'16px'}}>
-       <p >Hi ' my name is Kuldeep Kumar <br></br><span> i am a <Typewriter words={professionWords} loop={5} typeSpeed={40} deleteSpeed={40} cursor /></span> </p>
-     </blockquote>
-        <p  className="ms-3" style={{fontSize:'12px', height:"150px", width:'120px'}}> <Typewriter words={bio} loop={5} typeSpeed={40} deleteSpeed={40} cursor /> </p>
-     <Button variant="outlined" style={{marginLeft:'10px' ,width:"200px", marginTop:'50px',fontSize:'20px'}} startIcon={<WorkIcon />} >
-     Hire me
-   </Button>
-     <img src={image} style={{marginTop:'60px', height: 'fit-content', width:'fit-content', overflow:'hidden' }} alt="my" /> */
-}

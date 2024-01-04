@@ -1,68 +1,27 @@
-import {  Card, CardContent, Fab, Grid, Typography } from '@mui/material'
-import React from 'react'
+import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import React from 'react';
 
-const CardDesign = ({props}) => {
-
-
+const CardDesign = ({ props }) => {
   return (
-    <Card
-        style={{
-          backgroundImage:
-            'linear-gradient(to right, rgb(156 221 235 / 19%), rgb(148 241 238 / 22%));',
-          
-        }}
-      >
-        <CardContent style={{ minHeight: '150px',  }}>
-          <Grid container spacing={0}>
-            <Grid item xs={12} md={12}>
-              <Grid container spacing={0}>
-                <Grid
-                  item
-                  xs={2}
-                  md={2}
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                 
-                   <img src={props.image} height={100} width={150} alt='ima'></img>
-                </Grid>
-                <Grid item xs={10} md={10}>
-                  <Typography
-                    variant="h6"
-                    component="h6"
-                    color="inherit"
-                    style={{
-                      lineHeight: '20px'
-                    }}
-                  >
-                    <p>{props.name}</p>
-                    <p style={{fontSize:'15px'}}>{props.feature}</p>
+    <Card sx={{ maxWidth: 355 }} style={{boxShadow: '1px 2px 2px ' ,color:'inherit'}} >
+      <CardMedia sx={{ height: 140 }} image={props.image} title="green iguana" />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {props.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          <p>Info: {props.feature}</p>
+          TechStack: {props.techStack}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <a href={props.image} target="_blank" rel="noreferrer">
+          <Button size="small">view Full image</Button>
+        </a>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
+  );
+};
 
-
-                  </Typography>
-                  <div>
-                  <Typography
-                    variant="p"
-                    component="p"
-                    style={{
-                      lineHeight: '8px',
-                      display: 'flex'
-                    }}
-                  >
-                    {props.techStack}
-                  </Typography>
-                  </div>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid md={12} style={{ display: 'flex', justifyContent: 'end' }}>
-           
-            {props.location}
-            
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
-  )
-}
-
-export default CardDesign
+export default CardDesign;

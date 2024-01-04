@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline, Paper, createTheme } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.min.css";
+  
 import { useState } from "react";
 import Footer from "../component/Footer";
 import NavBar from "../component/NavBar";
