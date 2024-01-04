@@ -1,8 +1,7 @@
 import MenuIcon from '@mui/icons-material/Menu';
-import { Avatar, FormControlLabel, FormGroup } from '@mui/material';
+import { Avatar, FormControlLabel, FormGroup, Link } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
@@ -12,7 +11,11 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import image from '../images/avtar-image.jpg';
 import { MaterialUISwitch } from '../util/util';
-const settings = ['resume', 'github', 'Linkedin'];
+const settings = [
+  {name:'resume',link:'https://drive.google.com/file/d/1gztQ097DXVDSo_vzwjEVXgCB28ra65pU/view?usp=sharing'},
+  {name:'github',link:'https://github.com/KuldeepKumarAngural'},
+  {name:'Linkedin',link:'https://www.linkedin.com/in/kuldeep-kumar-485a13252/'}
+];
 
 const  NavBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -28,10 +31,11 @@ const  NavBar = (props) => {
   };
 
 
+  console.log(settings[0]);
 
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color='inherit'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Avatar alt="kuldeep Kumar" src={image}  sx={{ height:'100px',width:'100px', display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -82,9 +86,12 @@ const  NavBar = (props) => {
               }}
             >
               {/* {displays on small Devices} */}
-              {settings.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {settings.map((page,index) => (
+                <MenuItem key={index}  onClick={handleCloseNavMenu}>
+                  <Link href={page.link} color='inherit' underline='none' target="_blank" style={{fontWeight:'700'}}>
+                    {console.log(page)}
+                  <Typography textAlign="center">{page.name}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -121,7 +128,9 @@ const  NavBar = (props) => {
             }}
           >
             {settings.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: "inherit", display: "block" }}>{page}</Button>
+             <Link href={page.link} target="_blank" color='inherit' sx={{margin:'20px',fontSize:'18px',fontWeight:'500'}} underline="none">
+             {String(page.name).toUpperCase()}
+           </Link>
             ))}
           </Box>
           <Box>
