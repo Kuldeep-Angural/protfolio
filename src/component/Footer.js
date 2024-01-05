@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <Container maxWidth="100%" sx={{ boxShadow: 3, position: 'fixed', bottom: '0px', alignItems: 'center', justifyContent: 'center', textAlign: 'center', marginTop: '20px' }}>
+    <Container maxWidth="100%" sx={{ boxShadow: 3, position: 'relative', bottom: '0px', alignItems: 'center', justifyContent: 'center', textAlign: 'center', marginTop: '20px' }}>
       <Typography
         variant="h6"
         noWrap

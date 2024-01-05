@@ -1,35 +1,63 @@
+import emailjs from '@emailjs/browser';
 import WorkIcon from '@mui/icons-material/Work';
 import { Avatar, Chip, Link } from '@mui/material';
 import Button from '@mui/material/Button';
 import React, { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import AppModal from '../component/Modal';
+import Toast from '../component/Toast';
 import { bio, professionWords, socialMediaHandle } from '../constants/informationText';
 import { projects } from '../constants/projects';
 import { skills } from '../constants/skills';
 import image from '../images/roundBg.png';
 import CardDesign from './CardDesign';
+
 const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [opentoast, setopentoast] = useState(false);
+  const [message, setMessage] = useState('');
+  const [mesageType, setMessageType] = useState('success');
 
   const actionHirebutton = () => {
     setModalOpen(true);
   };
 
   const getModalData = (data) => {
-    console.log(data);
-  };
+    const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
+    const templateid = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY;
 
-  const handleOpenModal = () => {
-    setModalOpen(true);
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      to_name: 'Kuldeep kumar',
+      message: ` getting this message :${data.message} , from ${data.email}`,
+    };
+
+    emailjs.send(serviceId, templateid, templateParams, publicKey).then((result) => {
+      if (result.status === 200) {
+        setMessage(`Email sent successfully!`);
+      } else {
+        setMessageType('error');
+        setMessage(`Something went-wrong`);
+      }
+
+      setopentoast(true);
+      setModalOpen(false);
+    });
   };
 
   const handleCloseModal = () => {
     setModalOpen(false);
   };
 
+  const handleClose = () => {
+    setopentoast(false);
+  };
+
   return (
     <>
+      <Toast opentoast={opentoast} handleClose={handleClose} time={3000} mesageType={mesageType} message={message} vertical="top" horizontal="center" />
       <AppModal open={modalOpen} onClose={handleCloseModal} title="Example Modal" getData={getModalData} content="This is some example content for the modal." />
       <div className="container mt-5">
         <div className="row">

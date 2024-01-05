@@ -13,7 +13,6 @@ const AppModal = ({ open, onClose, title, content, getData }) => {
   const subMitData = () => {
     if (data?.name && data?.email && data?.message) {
       getData(data);
-      onClose();
     } else {
       //toast here
     }

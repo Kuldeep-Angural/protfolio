@@ -3,7 +3,7 @@ import React from 'react';
 
 const CardDesign = ({ props }) => {
   return (
-    <Card sx={{ maxWidth: 355 }} style={{boxShadow: '1px 2px 2px ' ,color:'inherit'}} >
+    <Card sx={{ maxWidth: 355 }} style={{ height: '350px' }}>
       <CardMedia sx={{ height: 140 }} image={props.image} title="green iguana" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -15,7 +15,7 @@ const CardDesign = ({ props }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <a href={props.image} target="_blank" style={{textDecoration:'none'}} rel="noreferrer">
+        <a href={props.image} target="_blank" style={{ textDecoration: 'none' }} rel="noreferrer">
           <Button size="small">view Full image</Button>
         </a>
         <Button size="small">Learn More</Button>
