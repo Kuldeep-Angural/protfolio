@@ -7,7 +7,7 @@ import Footer from '../component/Footer';
 import NavBar from '../component/NavBar';
 import Landing from '../pages/Landing';
 const App = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   const theme = createTheme({
     palette: {

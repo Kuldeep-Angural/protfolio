@@ -1,5 +1,6 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Button, Card, Grid, Input, Modal, Typography } from '@mui/material';
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const AppModal = ({ open, onClose, title, content, getData }) => {
@@ -13,7 +14,7 @@ const AppModal = ({ open, onClose, title, content, getData }) => {
   const subMitData = () => {
     if (data?.name && data?.email && data?.message) {
       getData(data);
-    } else {
+          } else {
       //toast here
     }
   };

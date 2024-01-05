@@ -11,6 +11,8 @@ import { projects } from '../constants/projects';
 import { skills } from '../constants/skills';
 import image from '../images/roundBg.png';
 import CardDesign from './CardDesign';
+import { educations } from '../constants/Educations';
+import { EduCardDesign } from '../constants/EduCardDesign';
 
 const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -83,27 +85,32 @@ const HeroSection = () => {
               </p>
             </div>
           </div>
+        </div>
 
-          {/* Social media   */}
-          <div className="container">
-            <div className="row justify-content-center ">
-              {socialMediaHandle.map((item) => {
-                return (
-                  <div className="col-md-2 mt-4" style={{ width: 'auto' }} key={item.name}>
-                    <Link title={item.name} href={item.link} color="inherit" underline="none" target="_blank" style={{ fontWeight: '700' }}>
-                      <Avatar style={{ cursor: 'pointer' }} alt={item.name} src={item.image} className="mb-5 mt-5" />
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
+        {/* Social media   */}
+      </div>
+      <div className="mt-5">
+        <div className="container">
+          <div className="row justify-content-center ">
+            {socialMediaHandle.map((item) => {
+              return (
+                <div className="col-md-2 mt-4" style={{ width: 'auto' }} key={item.name}>
+                  <Link title={item.name} href={item.link} color="inherit" underline="none" target="_blank" style={{ fontWeight: '700' }}>
+                    <Avatar style={{ cursor: 'pointer' }} alt={item.name} src={item.image} className="mb-5 mt-5" />
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
 
       <div className="mt-5">
         <div className="text-center">
-          <h2 style={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit' }}>Skills</h2>
+          <h1 className="text-center" style={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit' }}>
+            Skills
+            <p style={{ fontSize: '18px', fontFamily: 'serif', fontWeight: 700, letterSpacing: '.1rem' }}>I have worked on a wide range of projects. Here are some of my projects</p>
+          </h1>
         </div>
         <div className="d-flex g-5 col-md-12 mt-5 justify-content-center align-item-center ">
           {/* Skills */}
@@ -131,6 +138,7 @@ const HeroSection = () => {
               <div className="row  col-md-12 mb-4 d-flex justify-content-center alingn-item-center mx-4">
                 <h1 className="text-center" style={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit' }}>
                   projects
+                  <p style={{ fontSize: '18px', fontFamily: 'serif', fontWeight: 700, letterSpacing: '.1rem' }}>I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.</p>
                 </h1>
                 {item.project.map((program) => {
                   return (
@@ -141,6 +149,24 @@ const HeroSection = () => {
                 })}
               </div>
             );
+          })}
+        </div>
+      </div>
+
+      <div className="container mt-5">
+        <div className="row  col-md-12 mb-4 d-flex justify-content-center alingn-item-center mx-4">
+          <h1 className="text-center" style={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit' }}>
+            Education
+            <p style={{ fontSize: '18px', fontFamily: 'serif', fontWeight: 700, letterSpacing: '.1rem' }}>My education has been a journey of self-discovery and growth. My educational details are as follows.</p>
+          </h1>
+          {educations.map((edu) => {
+            return edu.programs.map((educations) => {
+              return (
+                <div className="col-md-4 mt-3 mb-2 align-item-center justify-content-center ">
+                  <EduCardDesign props={educations} />
+                </div>
+              );
+            });
           })}
         </div>
       </div>

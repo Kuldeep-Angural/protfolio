@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import { Card, CardActions, CardContent, CardMedia, Link, Typography } from '@mui/material';
 import React from 'react';
 
 const CardDesign = ({ props }) => {
@@ -15,10 +15,10 @@ const CardDesign = ({ props }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <a href={props.image} target="_blank" style={{ textDecoration: 'none' }} rel="noreferrer">
-          <Button size="small">view Full image</Button>
+        <a href={props.image} className='text-center' target="_blank" style={{ textDecoration: 'none' }} rel="noreferrer">
+          <Link underline="none" style={{fontSize:'17px',marginLeft:'60px'}} size="small">FULL IMAGE</Link>
         </a>
-        <Button size="small">Learn More</Button>
+        <Link href={props.link}   underline="none" target="_blank">DOWNLOAD</Link>
       </CardActions>
     </Card>
   );
