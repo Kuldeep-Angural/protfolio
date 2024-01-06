@@ -61,7 +61,7 @@ const HeroSection = () => {
     <>
       <Toast opentoast={opentoast} handleClose={handleClose} time={3000} mesageType={mesageType} message={message} vertical="top" horizontal="center" />
       <AppModal open={modalOpen} onClose={handleCloseModal} title="Example Modal" getData={getModalData} content="This is some example content for the modal." />
-      <div className="container mt-5">
+      <div className="container mt-5" style={{height:'auto'}} >
         <div className="row">
           <div className="col-md-6">
             <img src={image} height={350} style={{ border: '2px solid', color: 'inherit', borderRadius: '50%', marginLeft: '0px', maxWidth: '100%', height: 'auto' }} alt="myImg" />
@@ -109,7 +109,7 @@ const HeroSection = () => {
         <div className="text-center">
           <h1 className="text-center" style={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit' }}>
             Skills
-            <p style={{ fontSize: '18px', fontFamily: 'serif', fontWeight: 700, letterSpacing: '.1rem' }}>I have worked on a wide range of projects. Here are some of my projects</p>
+            <p style={{ fontSize: '18px', fontFamily: 'serif', fontWeight: 700, letterSpacing: '.1rem' }}>Here are some of my skills on which I have been working on for the past 2 years.</p>
           </h1>
         </div>
         <div className="d-flex g-5 col-md-12 mt-5 justify-content-center align-item-center ">

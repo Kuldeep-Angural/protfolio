@@ -21,7 +21,7 @@ const App = () => {
     <div className="App">
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Paper style={{ height: '100vh' }}>
+        <Paper>
           <NavBar chacked={darkMode} onChange={() => setDarkMode(!darkMode)} />
           <Landing />
           <Footer />
