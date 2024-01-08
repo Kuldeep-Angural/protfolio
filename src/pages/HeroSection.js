@@ -6,18 +6,19 @@ import React, { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import AppModal from '../component/Modal';
 import Toast from '../component/Toast';
+import { EduCardDesign } from '../constants/EduCardDesign';
+import { educations } from '../constants/Educations';
 import { bio, professionWords, socialMediaHandle } from '../constants/informationText';
 import { projects } from '../constants/projects';
 import { skills } from '../constants/skills';
 import image from '../images/roundBg.png';
 import CardDesign from './CardDesign';
-import { educations } from '../constants/Educations';
-import { EduCardDesign } from '../constants/EduCardDesign';
 
 const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [opentoast, setopentoast] = useState(false);
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false)
   const [mesageType, setMessageType] = useState('success');
 
   const actionHirebutton = () => {
@@ -25,6 +26,8 @@ const HeroSection = () => {
   };
 
   const getModalData = (data) => {
+    setLoading(true);
+
     const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
     const templateid = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
     const publicKey = process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY;
@@ -44,6 +47,7 @@ const HeroSection = () => {
         setMessage(`Something went-wrong`);
       }
 
+      setLoading(false)
       setopentoast(true);
       setModalOpen(false);
     });
@@ -57,13 +61,21 @@ const HeroSection = () => {
     setopentoast(false);
   };
 
+
+ 
+
+  
+
+
+
   return (
     <>
       <Toast opentoast={opentoast} handleClose={handleClose} time={3000} mesageType={mesageType} message={message} vertical="top" horizontal="center" />
       <AppModal open={modalOpen} onClose={handleCloseModal} title="Example Modal" getData={getModalData} content="This is some example content for the modal." />
       <div className="container mt-5" style={{height:'auto'}} >
         <div className="row">
-          <div className="col-md-6">
+          
+          <div className="col-md-6 ">
             <img src={image} height={350} style={{ border: '2px solid', color: 'inherit', borderRadius: '50%', marginLeft: '0px', maxWidth: '100%', height: 'auto' }} alt="myImg" />
           </div>
 
@@ -72,8 +84,9 @@ const HeroSection = () => {
             <div className="col-md-12 mb-5 text-center">
               <p className="intro fs-2 mt-5  w-100 " style={{ height: '100px', width: '250px' }}>
                 Hi, my name is Kuldeep Kumar <br />
-                <span>
-                  I am a <Typewriter words={professionWords} loop={5} typeSpeed={40} deleteSpeed={40} cursor />
+                <span>I am a </span>
+                <span style={{color:'blue' ,fontFamily: 'monospace', fontWeight: 900, letterSpacing: '.3rem',}}>
+                  <Typewriter words={professionWords} loop={5} typeSpeed={40} deleteSpeed={40} cursor />
                 </span>
                 <br></br>
               </p>
@@ -94,9 +107,9 @@ const HeroSection = () => {
           <div className="row justify-content-center ">
             {socialMediaHandle.map((item) => {
               return (
-                <div className="col-md-2 mt-4" style={{ width: 'auto' }} key={item.name}>
+                <div className="col-md-2 mt-4" style={{ width: 'auto' }} key={item.name} >
                   <Link title={item.name} href={item.link} color="inherit" underline="none" target="_blank" style={{ fontWeight: '700' }}>
-                    <Avatar style={{ cursor: 'pointer' }} alt={item.name} src={item.image} className="mb-5 mt-5" />
+                    <Avatar  style={{ cursor: 'pointer' }} alt={item.name} src={item.image} className="mb-5 mt-5" />
                   </Link>
                 </div>
               );

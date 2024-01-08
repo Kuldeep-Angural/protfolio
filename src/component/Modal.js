@@ -18,12 +18,14 @@ const AppModal = ({ open, onClose, title, content, getData }) => {
     }
   };
   return (
-    <Modal sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} open={open} onClose={onClose} aria-labelledby="modal-title" aria-describedby="modal-description">
+    <Modal sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}  open={open} onClose={onClose} aria-labelledby="modal-title" aria-describedby="modal-description">
       <Card sx={{ height: '400px', width: '400px' }}>
         <Typography variant="h5" id="modal-title" gutterBottom>
           <CloseIcon sx={{ position: 'relative', right: '-355px', marginTop: '10px', cursor: 'pointer', fontSize: '30px' }} onClick={onClose} />
         </Typography>
-        <Grid container spacing={2} style={{ margin: '' }}>
+        <Grid container spacing={2} style={{ margin: ''  }} className='text-center'> 
+        
+        <p className='text-center ' style={{marginLeft:'115px'}}>Only for Contact reference</p> 
           <Grid item xs={12} md={12} style={{ marginLeft: '50px', marginRight: '50px', marginBottom: '30px' }}>
             <Input aria-label="name" type="text" name="name" required style={{ width: '100%' }} onChange={handleChange} placeholder="enter your name" value={data?.name} />
           </Grid>
