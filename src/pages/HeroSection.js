@@ -135,7 +135,7 @@ const HeroSection = () => {
                 <div className="col-sm  mt-5 text center " key={skillItem.skills}>
                   <p className="text-center mt-5">{skillItem.title}</p>
                   {skillItem.skills.map((skills) => {
-                    return <Chip sx={{ height: '60px' }} key={skills.name} avatar={<Avatar alt="Natacha" src={skills.image} />} label={skills.name} variant="outlined" />;
+                    return <Chip sx={{ height: '60px' , margin:'7px',borderColor:'inherit' }} key={skills.name} avatar={<Avatar alt="Natacha" src={skills.image} />} label={skills.name} variant="outlined" />;
                   })}
                 </div>
               );
