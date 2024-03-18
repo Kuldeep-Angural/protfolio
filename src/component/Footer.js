@@ -3,12 +3,11 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <Container maxWidth="100%" sx={{ boxShadow: 3, position: 'relative', bottom: '0px', alignItems: 'center', justifyContent: 'center', textAlign: 'center', marginTop: '20px' }}>
+    <Container maxWidth="100%" sx={{ boxShadow: 3, position: 'fixed', bottom: '0px', alignItems: 'center', justifyContent: 'center', textAlign: 'center'  }}>
       <Typography
         variant="h6"
         noWrap
         component="a"
-        href="#app-bar-with-responsive-menu"
         sx={{
           mr: 2,
           color: 'inherit',
@@ -23,7 +22,6 @@ const Footer = () => {
         variant="h6"
         noWrap
         component="a"
-        href="#app-bar-with-responsive-menu"
         sx={{
           mr: 2,
           fontFamily: 'monospace',
@@ -34,7 +32,11 @@ const Footer = () => {
           fontSize: '15px',
         }}
       >
-        &nbsp; Kuldeep Kumar &#174;
+        &nbsp;
+        <a style={{ color: 'inherit' }} href="https://navv.info/">
+          navv.info
+        </a>
+        &#174;
       </Typography>
 
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}></Box>

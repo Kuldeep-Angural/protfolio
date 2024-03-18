@@ -1,8 +1,8 @@
-import MariZameen from '../images/projectsImages/MeriZameen.png';
 import Iqoo from '../images/projectsImages/Iqoo.png';
+import MariZameen from '../images/projectsImages/MeriZameen.png';
 import RockPaperScisior from '../images/projectsImages/RockPaperScisiorGame.png';
-import Tesla from '../images/projectsImages/Tesla.png';
 import PushBiker from '../images/projectsImages/Screenshot 2023-05-15 011015.png';
+import Tesla from '../images/projectsImages/Tesla.png';
 
 export const projects = [
   {

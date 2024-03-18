@@ -25,7 +25,7 @@ const NavBar = (props) => {
   };
 
   return (
-    <AppBar position="sticky" color="inherit">
+    <AppBar position="relative" color="inherit">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Avatar alt="kuldeep Kumar" src={image} sx={{ height: '100px', width: '100px', display: { xs: 'none', md: 'flex' }, mr: 1 }} />

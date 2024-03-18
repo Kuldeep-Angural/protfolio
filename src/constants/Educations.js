@@ -47,7 +47,7 @@ export const educations = [
         university: 'SVM(Sarvhitkari Vidya Mandir)',
         completed: '2015',
         image:SVM,
-        info:`I completed my class 10 education at Methodist School, Dankuni, where I studied Science , Maths with Computer Science., among other.`
+        info:`I completed my class 10 education at Sarvhitkari vidya Mandir , Bhoa, where I studied Science , Maths with Computer Science., among other.`
 
       },
     ],

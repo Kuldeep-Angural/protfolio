@@ -1,10 +1,10 @@
 import React from 'react';
-import HeroSection from '../pages/HeroSection';
+import { HeroSection } from './HeroSection';
 
-const Landing = () => {
+const Landing = (props) => {
   return (
     <>
-      <HeroSection />
+      <HeroSection {...props}/>
     </>
   );
 };

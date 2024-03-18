@@ -34,11 +34,10 @@ const AppHelper = () => {
         </div>
       ) : (
         <ThemeProvider theme={theme}>
+            {/* <NavBar chacked={darkMode} onChange={() => setDarkMode(!darkMode)} /> */}
+            <Landing chacked={darkMode} onChange={() => setDarkMode(!darkMode)} />
           <CssBaseline />
           <Paper>
-            <NavBar chacked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-            <Landing />
-            <Footer />
           </Paper>
         </ThemeProvider>
       )}
