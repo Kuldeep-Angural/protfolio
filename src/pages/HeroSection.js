@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../component/Footer';
 import { IconButton } from '../component/IconButton';
+import AppModal from '../component/Modal';
 import Toast from '../component/Toast';
 import { LandingSection } from './LandingSection';
 import { SkillSection } from './SkillSection';
@@ -20,6 +21,8 @@ export const HeroSection = ({ chacked, onChange }) => {
   const [loading, setLoading] = useState(false);
   const [mesageType, setMessageType] = useState('success');
   const [currentScreen, setCurrentScreen] = useState('main');
+  const [isHovered, setIsHovered] = React.useState(false);
+
   const navigate = useNavigate();
 
   const actionHirebutton = () => {
@@ -65,32 +68,25 @@ export const HeroSection = ({ chacked, onChange }) => {
     setCurrentScreen('about');
   };
 
-  const CustomLink = ({ to, icon, style, tooltip,onClick,  }) => (
-    <Tooltip title={tooltip} >
-     <Button
-        style={{ ...style }}
-        component={Link}
-        to={to}
-        variant="text"
-        color="primary"
-        size="small"
-        sx={{ mb: 2, minWidth: 'unset' }}
-        onClick={onClick}
-      >
+  const CustomLink = ({ to, icon, style, tooltip, onClick }) => (
+    <Tooltip title={tooltip}>
+      <Button  style={{ ...style, color: isHovered ? 'red' : 'initial' }}    onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)} component={Link} to={to} variant="text" color="primary" size="small" sx={{ mb: 2, minWidth: 'unset' }} onClick={onClick}>
         {icon}
       </Button>
-  </Tooltip>
+    </Tooltip>
   );
 
   return (
     <>
       <Grid sx={{ flexGrow: 1 }} container>
+        <AppModal open={modalOpen} onClose={handleCloseModal} title="Example Modal" getData={getModalData} content="This is some example content for the modal." />
         <Toast opentoast={opentoast} handleClose={handleClose} time={3000} mesageType={mesageType} message={message} vertical="top" horizontal="center" />
 
         <Grid item xs={12}>
           <Grid container justifyContent="center">
             <Grid display={'flex'} justifyContent={'end'}>
-            <CustomLink   style={{ marginRight: '10px', marginTop: '10px' }} icon={<HomeIcon sx={{ color: chacked ? 'white' : 'black' }} />} onClick={()=>setCurrentScreen('main')} to='/' tooltip="Home" />
+              <CustomLink style={{ marginRight: '10px', marginTop: '10px' }} icon={<HomeIcon sx={{ color: chacked ? 'white' : 'black' }} />} onClick={() => setCurrentScreen('main')} to="/" tooltip="Home" />
 
               <IconButton style={{ marginRight: '10px', marginTop: '10px' }} icon={<FeedIcon sx={{ color: chacked ? 'white' : 'black' }} />} onClick={() => window.open('https://drive.google.com/file/d/1gztQ097DXVDSo_vzwjEVXgCB28ra65pU/view?usp=sharing')} tooltip="Resume" />
 
@@ -102,7 +98,7 @@ export const HeroSection = ({ chacked, onChange }) => {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          {currentScreen === 'about' ? <SkillSection /> : <LandingSection onClick={actionHirebutton} onAboutClick={onAboutClick} />}
+          {currentScreen === 'about' ? <SkillSection chacked={chacked} /> : <LandingSection onClick={actionHirebutton} onAboutClick={onAboutClick} />}
         </Grid>
 
         <Grid item xs={12}></Grid>
@@ -120,5 +116,3 @@ export const HeroSection = ({ chacked, onChange }) => {
     </>
   );
 };
-
-
