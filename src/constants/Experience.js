@@ -7,7 +7,7 @@ export const experience = [
           name: "Target Profilo",
           link: 'https://app.targetprofilo.com/',
           role: 'Full Stack',
-          technologies: 'node-js, express-js , mongodb, stripe, webhooks,crownJobs, react',
+          technologies: 'node-js, express-js , mongodb, stripe, webhook,cron-Job, react',
           time:'january 24 - ongoing',
           image: tp,
           info: `Target profilo is an Digital marketing Application where user can send email ,whatsapp message ,Sms , and create event , pages, and workflow  and many more `,
