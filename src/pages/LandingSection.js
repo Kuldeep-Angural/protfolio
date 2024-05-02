@@ -18,7 +18,7 @@ export const LandingSection = ({ onClick, onAboutClick }) => {
   return (
     <Grid container>
       <Grid md={6} sm={12} justifyContent="center" alignItems="center">
-        <img src={image} style={{ height: '600px', color: 'inherit', marginLeft: '0px', maxWidth: '100%' }} alt="myImg" />
+        <img src={image} style={{ height: '550px', color: 'inherit', marginLeft: '0px', maxWidth: '100%' }} alt="myImg" />
       </Grid>
       <Grid md={6} sm={12} maxHeight={5}>
         <Typography variant="h4" textAlign="center" sx={{ mt: 5 }}>
